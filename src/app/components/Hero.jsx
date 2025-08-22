@@ -6,7 +6,7 @@ import { LuMousePointerClick } from "react-icons/lu";
 
 export default function Hero () {
     return (
-        <div className="">
+        <div className="bg-[#eaf8fa] p-8">
             <div className="space-y-3 pt-7">
                 <p className="text-center text-[14px] text-gray-800 md:text-lg flex justify-center">
                     <MdDeliveryDining size={24} className="text-[#31c9e0] "/> 580+ daily orders shipped all over the Country.</p>
@@ -24,7 +24,7 @@ export default function Hero () {
             <div className="flex gap-3 justify-center my-10">
                 <div className="relative">
                     <Link href={''} className="bg-teal-900 px-8 md:px-10 py-3 text-white rounded-4xl text-sm hover:bg-teal-800 transition transform duration-1000">Start Shopping</Link>
-                    <LuMousePointerClick size={34} className="absolute -bottom-4 -right-2 text-[#31c9e0]"/>
+                    <LuMousePointerClick size={34} className="absolute -bottom-4 -right-2 text-[#31c9e0] animate-pulse"/>
                 </div>
 
                 <div>
