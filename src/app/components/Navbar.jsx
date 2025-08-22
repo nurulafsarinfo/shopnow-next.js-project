@@ -16,7 +16,8 @@ export default function Navbar(){
             </div>
 
             <div>
-                <button>LogIn</button>
+                <Link href={'/login'} className="px-2 py-1 border mr-2">LogIn</Link>
+                <Link href={'/signup'} className="px-2 py-1 border bg-teal-300">SignUp</Link>
             </div>
         </nav>
         </div>
