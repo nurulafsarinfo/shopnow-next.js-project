@@ -3,8 +3,6 @@ import { listProducts } from "../lib/products"
 export default async function ProductPage() {
     const products = await listProducts();
 
-    console.log('all products', products);
-
     return (
         <div className="p-6">
             <h1 className="text-2xl text-center font-bold mb-6">Our Products</h1>
