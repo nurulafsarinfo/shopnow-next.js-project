@@ -1,3 +1,4 @@
+"use client";
 import { listProducts } from "../lib/products"
 
 export default async function ProductPage() {
