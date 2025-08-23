@@ -4,7 +4,6 @@ import { getProductsForHighlight } from "../lib/products";
 export default async function ProductHighlights() {
     
     const products = await getProductsForHighlight();
-    console.log('six products', products);
 
     return (
         <div className="p-6">

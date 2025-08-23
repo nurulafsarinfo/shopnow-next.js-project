@@ -1,7 +1,7 @@
 import { getProductBySlug } from "@/app/lib/products";
 
 export default async function  ProductDetails({ params }) {
-    const {slug} = params;
+    const {slug} = await params;
 
     const product = await getProductBySlug(slug);
 
