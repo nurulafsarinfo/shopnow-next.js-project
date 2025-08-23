@@ -10,9 +10,15 @@ export default async function CheckoutPage() {
     }
 
     return (
-        <div>
+        <div className="min-h-screen">
             <h1>Checkout Page</h1>
             <p>Welcome {session.user?.name}</p>
+            <aside>
+
+            </aside>
+
+            
+
         </div>
     )
     

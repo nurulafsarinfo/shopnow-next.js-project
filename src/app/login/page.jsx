@@ -35,7 +35,7 @@ export default function LoginPage() {
 
         if (res.ok) {
             // redirect dashboard or checkout page login successfully
-            router.push('/checkout');
+            router.push('/dashboard');
         } else {
             // res.error এ NextAuth থেকে পাঠানো এরর মেসেজ থাকে
             setError("Invalid email or password. Please try again.");
