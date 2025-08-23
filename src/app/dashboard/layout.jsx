@@ -1,6 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import Providers from "./components/Providers";
+import "../globals.css";
+import Providers from "../components/Providers";
+import Link from "next/link";
+import NavLink from "../components/NavLink";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,14 +21,49 @@ export const metadata = {
 
 export default function DashboardLayout({ children }) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <div className={`${geistSans.variable} ${geistMono.variable} antialiased  flex min-h-screen` }>
+        <aside className="w-64 bg-slate-900 text-white p-6 sticky top-0 h-screen">
+            {/* Logo/Site Name */}
+            <div className="border-b border-slate-700 p-6 text-center">
+                <Link href="/dashboard" className="text-2xl font-bold">
+                    ShopNow
+                </Link>
+            </div>
+
+
+            {/* Navigation Links */}
+            <nav className="flex flex-1 flex-col gap-2 p-4">
+                <NavLink href="/dashboard">
+                {/* Icon Placeholder */}
+                    <span>📊</span>
+                    <span>Overview</span>
+                </NavLink>
+                <NavLink href="/dashboard/add-product">
+                    {/* Icon Placeholder */}
+                    <span>➕</span>
+                    <span>Add Product</span>
+                </NavLink>
+                <NavLink href="/dashboard/products">
+                    {/* Icon Placeholder */}
+                    <span>📦</span>
+                    <span>All Products</span>
+                </NavLink>
+                        
+                {/* Spacer to push logout to bottom */}
+                <div className="mt-auto">
+                    <NavLink href="/">
+                        <span>↩️</span>
+                        <span>Back to Site</span>
+                    </NavLink>
+                </div>
+            </nav>
+        </aside>
+
+      <main className="flex-1 p-8 bg-gray-100">
 
         <Providers>{children}</Providers>
 
-      </body>
-    </html>
+      </main>
+    </div>
   );
 }
