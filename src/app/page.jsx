@@ -1,5 +1,6 @@
 
 import Hero from "./components/Hero";
+import ProductHighlights from "./components/ProductHighlights";
 import ProductPage from "./products/page";
 
 export default function Home() {
@@ -9,7 +10,7 @@ export default function Home() {
 
       <main className="min-h-screen">
         <Hero></Hero>
-        <ProductPage></ProductPage>
+        <ProductHighlights></ProductHighlights>
       </main>
 
 
