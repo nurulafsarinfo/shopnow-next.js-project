@@ -1,5 +1,5 @@
 import Link from 'next/link'; 
-import { listProducts } from "../lib/products";
+import { listProducts } from "../../lib/products";
 
 export const dynamic = 'force-dynamic';
 

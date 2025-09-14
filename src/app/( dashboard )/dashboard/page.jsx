@@ -1,5 +1,5 @@
 import { getServerSession } from "next-auth";
-import { authOptions } from "../lib/auth";
+import { authOptions } from "../../../lib/auth";
 import { redirect } from "next/dist/server/api-utils";
 
 export default async function CheckoutPage() {

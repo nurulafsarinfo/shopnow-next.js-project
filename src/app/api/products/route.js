@@ -1,4 +1,4 @@
-import { addProduct } from "@/app/lib/products";
+import { addProduct } from "@/lib/products";
 
 export async function POST(req) {
     try {

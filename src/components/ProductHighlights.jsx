@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getProductsForHighlight } from "../lib/products";
+import { getProductsForHighlight } from "@/lib/products";
 
 export default async function ProductHighlights() {
     

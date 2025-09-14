@@ -1,4 +1,4 @@
-import { getProductBySlug } from "@/app/lib/products";
+import { getProductBySlug } from "@/lib/products";
 
 export default async function  ProductDetails({ params }) {
     const {slug} = await params;
