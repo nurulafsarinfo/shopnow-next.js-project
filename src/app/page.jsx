@@ -4,6 +4,7 @@ import ProductPage from "./products/page";
 import Features from "@/components/Features";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
+import CTA from "@/components/CTA";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <Features></Features>
         <Testimonials></Testimonials>
         <FAQ></FAQ>
+        <CTA></CTA>
       </main>
 
 
