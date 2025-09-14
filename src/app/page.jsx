@@ -3,6 +3,7 @@ import ProductHighlights from "@/components/ProductHighlights";
 import ProductPage from "./products/page";
 import Features from "@/components/Features";
 import Testimonials from "@/components/Testimonials";
+import FAQ from "@/components/FAQ";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
         <ProductHighlights></ProductHighlights>
         <Features></Features>
         <Testimonials></Testimonials>
+        <FAQ></FAQ>
       </main>
 
 
