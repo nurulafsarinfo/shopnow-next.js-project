@@ -1,10 +1,10 @@
 import Hero from "@/components/Hero";
 import ProductHighlights from "@/components/ProductHighlights";
-import ProductPage from "./products/page";
 import Features from "@/components/Features";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
+import About from "@/components/About";
 
 export default function Home() {
   return (
@@ -18,6 +18,7 @@ export default function Home() {
         <Testimonials></Testimonials>
         <FAQ></FAQ>
         <CTA></CTA>
+        <About></About>
       </main>
 
 

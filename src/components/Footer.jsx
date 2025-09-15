@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function footer(){
+export default function Footer(){
     return(
     <div className="bg-gray-300">
         <footer className="w-11/12 mx-auto p-8 bg-gray-300 row-start-3 flex gap-[24px] flex-wrap items-start justify-between">
