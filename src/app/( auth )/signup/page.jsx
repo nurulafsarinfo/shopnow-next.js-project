@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Link from "next/link";
+import { signIn } from "next-auth/react";
 
 export default function SignupPage() {
     const [form, setForm] = useState({ name: "", email: "", password: "" });
@@ -32,7 +33,7 @@ export default function SignupPage() {
         });
 
         if (res.ok) {
-            router.push("/login");
+            router.push("/");
         } else {
             const errorData = await res.json();
             setError(errorData.message || 'Signup failed. Please try again.');
