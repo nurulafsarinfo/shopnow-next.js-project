@@ -111,7 +111,7 @@ export default function SignupPage() {
                     {/* Error Message Display */}
                     {error && (
                         <p className="mt-4 rounded-md bg-red-100 p-3 text-center text-sm text-red-600">
-                            {error}
+                            *{error}
                         </p>
                     )}
 
@@ -125,7 +125,15 @@ export default function SignupPage() {
                             {isLoading ? 'Signing Up...' : 'Sign Up'}
                         </button>
                     </div>
+                    
+                    <p className="text-center text-gray-400 my-4">_____OR_____</p>
+                    
+                    <button onClick={() => signIn('google', { callbackUrl: '/' })} className="text-center py-2 border border-cyan-600 my-4 w-full rounded-lg hover:bg-cyan-500 hover:text-white transition duration-500">
+                        Sign in with Google
+                    </button>
+
                 </form>
+
 
                 {/* Footer Link */}
                 <p className="mt-6 text-center text-sm text-gray-500">

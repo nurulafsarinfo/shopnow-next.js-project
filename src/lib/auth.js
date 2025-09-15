@@ -1,9 +1,17 @@
 import CredentialsProvider from 'next-auth/providers/credentials'
+// import GoogleProvider from "next-auth/providers/google"
 import { compare } from "bcrypt";
 import clientPromise from "./mongodb"
+import Google from 'next-auth/providers/google';
 
 export const authOptions = {
     providers: [
+        // Social login 
+        Google( {
+            clientId: process.env.GOOGLE_CLIENT_ID,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET
+        }),
+        
         CredentialsProvider({
             name: "Credentials",
             credentials: {

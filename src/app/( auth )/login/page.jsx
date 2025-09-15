@@ -35,10 +35,10 @@ export default function LoginPage() {
 
         if (res.ok) {
             // redirect dashboard or checkout page login successfully
-            router.push('/dashboard');
+            router.push('/');
         } else {
             // res.error এ NextAuth থেকে পাঠানো এরর মেসেজ থাকে
-            setError("Invalid email or password. Please try again.");
+            setError("Invalid Credentials. Please try again.");
         }
     };
 
@@ -113,6 +113,13 @@ export default function LoginPage() {
                             {isLoading ? 'Logging In...' : 'Log In'}
                         </button>
                     </div>
+
+                    <p className="text-center text-gray-400 my-4">_____OR_____</p>
+                    
+                    <button onClick={() => signIn('google', { callbackUrl: '/' })} className="text-center py-2 border border-cyan-600 my-4 w-full rounded-lg hover:bg-cyan-500 hover:text-white transition duration-500">
+                        Sign in with Google
+                    </button>
+
                 </form>
 
                 {/* Footer Link */}
