@@ -1,5 +1,9 @@
+import { ObjectId } from "mongodb";
 import clientPromise from "./mongodb";
 
+
+    const client = await clientPromise;
+    const db = client.db(process.env.DB_NAME)
 
 // for get all products
 export async function listProducts() {
@@ -16,6 +20,16 @@ export async function getProductBySlug(slug){
 
     const db = client.db(process.env.DB_NAME);
     return await db.collection('products').findOne({ slug: decodedSlug });
+}
+
+
+export async function getProductById(productId) {
+    const client = await clientPromise;
+    const db = client.db(process.env.DB_NAME)
+
+    const product = await db.collection('products').findOne({_id: new ObjectId(productId) });
+
+    return JSON.parse(JSON.stringify(product));
 }
 
 

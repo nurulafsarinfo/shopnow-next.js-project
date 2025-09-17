@@ -1,54 +1,55 @@
-🛍️ ShopNow - Full-Stack E-Commerce App
-📖 Project Description
+# 🛍️ ShopNow - Full-Stack E-Commerce App
+
+## 📖 Project Description
 ShopNow is a full-stack e-commerce application built with the Next.js App Router, offering robust product management, secure authentication, and a seamless checkout flow. It demonstrates modern full-stack development practices, utilizing server components, protected routes, and MongoDB database integration. The project is portfolio-ready and designed to showcase end-to-end skills in building scalable, real-world applications.
 
-🛠️ Tech Stack
-Frontend: Next.js (App Router), React, Tailwind CSS, Shadcn UI
+---
 
-Backend: Next.js API Routes
+## 🛠️ Tech Stack
+- **Frontend:** `Next.js` (App Router), `React`, `Tailwind CSS`, `Shadcn UI`
+- **Backend:** `Next.js` API Routes
+- **Authentication:** `NextAuth.js` (Google OAuth + Email/Password with JWT)
+- **Database:** `MongoDB` with `Mongoose`
+- **Utilities:** `TanStack Query` (React Query) for client-side fetching, `bcrypt` for password hashing
+- **Deployment:** `Vercel`
 
-Authentication: NextAuth.js (Google OAuth + Email/Password with JWT)
+---
 
-Database: MongoDB with Mongoose
+## ✨ Features
 
-Utilities: TanStack Query (React Query) for client-side fetching, bcrypt for password hashing
+### 🔐 Authentication
+- Email/password login with hashed passwords.
+- Google OAuth for social login.
+- JWT-based sessions with protected routes.
 
-Deployment: Vercel
+### 🏠 Landing Page
+- SEO-optimized sections: Hero, Features, Testimonials, FAQ, CTA, and more.
+- Fully responsive design for all devices.
 
-✨ Features
-🔐 Authentication
-Email/password login with hashed passwords.
+### 📊 Dashboard (Protected)
+- Full CRUD (Create, Read, Update, Delete) functionality for products.
+- Manage product details, stock levels, and pricing.
 
-Google OAuth for social login.
+### 💳 Checkout Flow
+- Secure booking/checkout form with input validation.
+- Store booking and order data directly in MongoDB.
+- Display booking history in the user dashboard.
 
-JWT-based sessions with protected routes.
+### ⚡ Advanced Features
+- Next.js Middleware for robust route protection.
+- Pagination and filtering capabilities for products.
+- Dedicated error and loading states using `error.tsx` and `loading.tsx`.
 
-🏠 Landing Page
-SEO-optimized sections: Hero, Features, Testimonials, FAQ, CTA, and more.
+---
 
-Fully responsive design for all devices.
-
-📊 Dashboard (Protected)
-Full CRUD (Create, Read, Update, Delete) functionality for products.
-
-Manage product details, stock levels, and pricing.
-
-💳 Checkout Flow
-Secure booking/checkout form with input validation.
-
-Store booking and order data directly in MongoDB.
-
-Display booking history in the user dashboard.
-
-⚡ Advanced Features
-Next.js Middleware for robust route protection.
-
-Pagination and filtering capabilities for products.
-
-Dedicated error and loading states using error.tsx and loading.tsx.
-
-⚙️ Setup Instructions
+## ⚙️ Setup Instructions
 Follow these steps to get the project running locally:
+
+### 1. Clone Repository
+```bash
+git clone [https://github.com/your-username/shopnow.git](https://github.com/your-username/shopnow.git)
+cd shopnow
+
 
 1. Clone Repository
 git clone [https://github.com/your-username/shopnow.git](https://github.com/your-username/shopnow.git)
@@ -73,7 +74,7 @@ Visit http://localhost:3000 in your browser to see the app running. 🚀
 5. Deployment
 Deploy your application easily to Vercel with a single command:
 
-vercel
+ vercel(recommended) I was hosted in netlify
 
 📌 Deliverables
 ✅ Live Site hosted on Vercel.

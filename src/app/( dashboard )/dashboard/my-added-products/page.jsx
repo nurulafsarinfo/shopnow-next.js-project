@@ -4,11 +4,11 @@ import { Spinner } from "@/components/ui/shadcn-io/spinner";
 import { useQuery } from "@tanstack/react-query";
 import { Pencil, Trash2 } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 
 const fetchMyProducts = async () => {
-    const response = await fetch('/api/getProductByEmail');
-
+  const response = await fetch('/api/getProductByEmail');
     if(!response.ok) {
         throw new Error('Network response was not ok');
     }
@@ -16,12 +16,24 @@ const fetchMyProducts = async () => {
 }
 
 
+
+
+
 export default function MyAllProducts() {
+    const router = useRouter();
 
     const {data: products, error, isLoading } = useQuery({
-        queryKey: ['myProducts'], 
+        queryKey: ['myProducts'],
         queryFn: fetchMyProducts,
     });
+
+
+console.log('my- products:', products)
+
+
+    const handleUpdate = (productId) => {
+      router.push(`/dashboard/updateProduct/${productId}`)
+    }
 
     if(isLoading) {
         return (
@@ -35,7 +47,7 @@ export default function MyAllProducts() {
 
 
   return (
-    <div className="max-w-2xl mx-auto">
+    <div className="max-w-screen mx-auto">
       <div className="mb-6">
         <h1 className="text-3xl font-bold">My Products</h1>
         <p className="mt-1 text-gray-600">
@@ -43,7 +55,6 @@ export default function MyAllProducts() {
         </p>
       </div>
 
-      {/* ২. টেবিলটিকে একটি কন্টেইনার দিয়ে র‍্যাপ করা হয়েছে যাতে ছোট স্ক্রিনে scroll করা যায় */}
       <div className="overflow-x-auto rounded-lg border border-gray-200 shadow-md">
         <table className="table w-full divide-y divide-gray-200 bg-white">
           <thead className="bg-gray-50">
@@ -81,7 +92,7 @@ export default function MyAllProducts() {
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{product.stock}</td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  {/* ৩. স্ট্যাটাস বোঝানোর জন্য একটি সুন্দর ব্যাজ */}
+
                   <span className={`rounded-full px-2 py-1 text-xs font-semibold ${
                     product.stock > 10 ? 'bg-green-100 text-green-800' : 
                     product.stock > 0 ? 'bg-yellow-100 text-yellow-800' : 
@@ -91,11 +102,11 @@ export default function MyAllProducts() {
                   </span>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                  {/* ৪. আপডেট এবং ডিলিট আইকন বাটন */}
+                   {/* Update and delete icon */}
                   <div className="flex items-center justify-end gap-4">
-                    <button onClick={() => handleUpdate(product._id.toString())} className="text-blue-600 hover:text-blue-800" title="Edit Product">
+                    <Link href={`/dashboard/my-added-products/${product._id.toString()}`}  className="text-blue-600 hover:text-blue-800" title="Edit Product">
                       <Pencil className="h-5 w-5" />
-                    </button>
+                    </Link>
                     <button onClick={() => handleDelete(product._id.toString())} className="text-red-600 hover:text-red-800" title="Delete Product">
                       <Trash2 className="h-5 w-5" />
                     </button>
