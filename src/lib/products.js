@@ -18,6 +18,7 @@ export async function getProductBySlug(slug){
     return await db.collection('products').findOne({ slug: decodedSlug });
 }
 
+
 export async function getProductsForHighlight( ) {
     const client = await clientPromise;
     const db = client.db(process.env.DB_NAME);

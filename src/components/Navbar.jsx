@@ -11,10 +11,18 @@ export default function Navbar(){
     const { data: session, status } = useSession();
 
 console.log('sassion data is', session, status)
+console.log('sassion data is', session?.user , status)
 
-if(status === "loading"){
-    return <div className="navbar-placeholder text-center">...</div>
-}
+    if(status === "loading"){
+        return <div className="navbar-placeholder text-center">...</div>
+    }
+
+    const getInitials = (name) => {
+        if(!name) return 'U';
+        const names = name.split(' ');
+        const initials = names.map(n => n[0]).join('');
+        return initials.toUpperCase();
+    }
 
     return(
         <div className="border-b">
@@ -34,7 +42,10 @@ if(status === "loading"){
                 <Link href="/products">Products</Link>
                 <Link href="/about">About</Link>
                 <Link href="/contact-us">Contact Us</Link>
-                <Link href="/dashboard">Dashboard</Link>
+                {
+                    session &&
+                    <Link href="/dashboard">Dashboard</Link>
+                }
             </div>
 
             {
@@ -43,8 +54,8 @@ if(status === "loading"){
                         {/* add user image or default avater */}
 
                         <Avatar>
-                            <AvatarImage src={session.user.image} alt="user avater"/>
-                            <AvatarFallback>N/A</AvatarFallback>
+                            <AvatarImage src={session?.user?.image} alt="user avater"/>
+                            <AvatarFallback className="text-blue-900 font-bold bg-blue-400">{getInitials(session.user.name)}</AvatarFallback>
                         </Avatar>
 
                         {/* <img src={session.user.image || Avatar} 

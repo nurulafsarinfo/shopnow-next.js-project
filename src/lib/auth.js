@@ -2,7 +2,7 @@ import CredentialsProvider from "next-auth/providers/credentials"
 import GoogleProvider from "next-auth/providers/google";
 import clientPromise from "./mongodb";
 import { compare } from "bcrypt";
-import { signIn } from "next-auth/react";
+// import { signIn } from "next-auth/react";
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
 
 export const authOptions = {

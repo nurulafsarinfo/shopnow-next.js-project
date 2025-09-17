@@ -34,7 +34,8 @@ export default function LoginPage() {
         setIsLoading(false);
 
         if (res.ok) {
-            // redirect dashboard or checkout page login successfully
+            router.refresh();
+            // redirect home page login successfully
             router.push('/');
         } else {
             // res.error এ NextAuth থেকে পাঠানো এরর মেসেজ থাকে

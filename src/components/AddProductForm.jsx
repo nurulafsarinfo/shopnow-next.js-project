@@ -1,18 +1,30 @@
 "use client"
+import { useSession } from "next-auth/react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
-export default function () {
+export default function AddProductForm() {
+    const { data: session, status } = useSession();
+
+    console.log("session data users data", session, status)
+
     const { register, handleSubmit, formState: {errors}, reset } = useForm();
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [ apiError, setApiError ] = useState(null);
 
     const onSubmit = async (data) => {
+        // for confirm user logged in
+        if(!session || !session.user) {
+            setApiError("You must be logged in to add a product.")
+            return;
+        }
         setIsSubmitting(true);
         setApiError(null);
 
         const processedData = {
             ...data,
+            sellerEmail: session?.user?.email,
+            createdAt: new Date().toISOString(),
             image: data.images.split('\n').filter(url => url.trim() !== ''),
             features: data.features.split('\n').filter(feature => feature.trim() !== ''),
         }

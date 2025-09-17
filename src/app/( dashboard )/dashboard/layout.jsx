@@ -43,7 +43,7 @@ export default function DashboardLayout({ children }) {
                     <span>➕</span>
                     <span>Add Product</span>
                 </NavLink>
-                <NavLink href="/dashboard/products">
+                <NavLink href="/dashboard/my-added-products">
                     {/* Icon Placeholder */}
                     <span>📦</span>
                     <span>All Products</span>
@@ -61,7 +61,8 @@ export default function DashboardLayout({ children }) {
 
       <main className="flex-1 p-8 bg-gray-100">
 
-        <Providers>{children}</Providers>
+        {/* <Providers>{children}</Providers> */}
+        {children}
 
       </main>
     </div>
