@@ -9,8 +9,6 @@ import Swal from "sweetalert2";
 export default function EditProductForm({ product }){
     const router = useRouter();
 
-    console.log('product id is', product._id)
-
     const formDefaultValues = {
         ...product,
         images: Array.isArray(product.images) ? product.images.join(',\n') : '',
@@ -29,7 +27,7 @@ export default function EditProductForm({ product }){
 
         const updatedData = {
             ...data,
-            // updatedAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString(),
 
             images: data.images.split('\n').filter(url => url.trim() !== ''),
             features: data.features.split('\n').filter(feature => feature.trim() !== '')
@@ -57,7 +55,7 @@ export default function EditProductForm({ product }){
                 icon: "success",
             })
 
-            router.push('/dashboard/my-all-products');
+            router.push('/dashboard/my-added-products');
             router.refresh();
         }
         catch(error){
