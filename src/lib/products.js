@@ -2,9 +2,7 @@ import { ObjectId } from "mongodb";
 import clientPromise from "./mongodb";
 
 
-    const client = await clientPromise;
-    const db = client.db(process.env.DB_NAME)
-
+ 
 // for get all products
 export async function listProducts() {
     const client = await clientPromise;
@@ -47,3 +45,26 @@ export async function  addProduct(product) {
     return db.collection('products').insertOne(product);
 }
 
+
+// // update product by id 
+// export async function updateProductById(productId, product) {
+//     try{
+//         const client = await clientPromise;
+//         const db = client.db(process.env.DB_NAME)
+
+//         const {_id, ...dataToUpdate } = product;
+
+//         console.log("Is valid ObjectId?", ObjectId.isValid(productId))
+
+//         const result = await db.collection("products").updateOne(
+//             { _id: productId },
+//             { $set: dataToUpdate}
+//         );
+
+//         return result;
+
+//     }catch(error) {
+//         console.error("Database update error:", error);
+//         throw new Error ("Failed to update product in database.")
+//     }
+// }

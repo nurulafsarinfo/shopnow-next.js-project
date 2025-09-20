@@ -2,7 +2,7 @@ import EditProductForm from "@/components/EditProductForm";
 import { getProductById } from "@/lib/products";
 
 export default async function UpdateProduct({params}) {
-    const {productId} = params;
+    const {productId} = await params;
 
     const product = await getProductById(productId);
 

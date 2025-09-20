@@ -25,6 +25,7 @@ export default function AddProductForm() {
             ...data,
             sellerEmail: session?.user?.email,
             createdAt: new Date().toISOString(),
+            
             image: data.images.split('\n').filter(url => url.trim() !== ''),
             features: data.features.split('\n').filter(feature => feature.trim() !== ''),
         }

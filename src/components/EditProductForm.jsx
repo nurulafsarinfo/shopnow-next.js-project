@@ -8,7 +8,17 @@ import Swal from "sweetalert2";
 
 export default function EditProductForm({ product }){
     const router = useRouter();
-    const { register, handleSubmit, formState: {errors} } = useForm({defaultValues: product});
+
+    console.log('product id is', product._id)
+
+    const formDefaultValues = {
+        ...product,
+        images: Array.isArray(product.images) ? product.images.join(',\n') : '',
+        features: Array.isArray(product.features) ? product.features.join(',\n') : '',
+    }
+
+    const { register, handleSubmit, formState: {errors} } = useForm({defaultValues: formDefaultValues});
+
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [ apiError, setApiError ] = useState(null);
     
@@ -17,13 +27,24 @@ export default function EditProductForm({ product }){
         setIsSubmitting(true);
         setApiError(null);
 
+        const updatedData = {
+            ...data,
+            // updatedAt: new Date().toISOString(),
+
+            images: data.images.split('\n').filter(url => url.trim() !== ''),
+            features: data.features.split('\n').filter(feature => feature.trim() !== '')
+        }
+
         try{
             const response = await fetch(`/api/products/${product._id}`, {
                 method: 'PATCH',
                 headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(data),
+                body: JSON.stringify(updatedData),
             });
 
+// // debug
+// console.log("PATCH status:", response.status)
+// console.log("PATCH text:", await response.text()) // <-- HTML page দেখাবে
 
             if(!response.ok){
                 const errorData = await response.json();
@@ -41,6 +62,7 @@ export default function EditProductForm({ product }){
         }
         catch(error){
             setApiError(error.message)
+            console.log('update error', error.message)
             Swal.fire({
                 title: 'Error',
                 text: error.message,
